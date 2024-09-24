@@ -1,0 +1,64 @@
+---
+title: "Analysis of Death register statistics in Toronto"
+subtitle: "the relationship between death numbers and locations with time"
+author: 
+  - Ruiying Li
+thanks: "Code and data are available at: https://github.com/Liruiying0414/Marriage-Lincense"
+date: today
+date-format: long
+abstract: "This paper generally analyze the death people number registered in each regions of Toronto through 2015 to 2024, we can use this dataset to track the population mobility，and also provide an insights into discovering population density and urban resident safety index in Toronto" 
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+data <- read_csv(here::here("data/analysis_data/analysis_data.csv"))
+data
+
+```
+# Introduction
+
+This paper shows the death registered people based in Toronto from 2015 to 2024. We use @opendatatorotno as our dataset, using R programming to write code and @tidyverse to clean and test data, with ggplot to form graph, finding the trend of Death people in Toronto through years
+
+
+# Data {#sec-mydatasection}
+
+data used for this paper is from @opendatatoronto and program using @citeR. It contains information of number of death people, locations and time.
+
+```{r}
+#| label: fig-number of death
+#| fig-cap: Death registered people in Toronto
+#| echo: false
+
+ggplot(data,aes(x = year)) + geom_histogram(binwidth = 2,fill= "skyblue",color = "black",alpha = 0.7) + labs(title = "Death people data through years",x="year",y="number of death")+theme_minimal()
+
+```
+## Result
+As you could see the result that the sketched histogram provided, the number of death registered people shown an decrease trend and become less and less through recent years, which we could consider the population density in Toronto is undercontrol and resident safety index is increasing in recent years.
+
+# discussion
+
+# Limitations 
+
+# Future expectations
+
+
+
+\newpage
+
+\appendix
+
+# Appendix {-}
+
+
+\newpage
+
+
+# References
